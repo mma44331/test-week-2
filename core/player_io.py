@@ -1,2 +1,6 @@
 def ask_player_action() -> str:
-    pass
+    while True:
+        char = input("Entera character only 'S' or 'H': ")
+        if char != "S" or char != "H":
+            continue
+    return char

@@ -1,5 +1,4 @@
 from random import randint
-from operator import index
 
 
 def build_standard_deck() -> list[dict]:
@@ -22,7 +21,7 @@ def build_standard_deck() -> list[dict]:
             card_deck.append(card_dict)
     return card_deck
 
-def shuffle_by_suit(deck: list[dict], swaps: int = 5000) -> list[dict]:
+def shuffle_by_suit(deck: list[dict], swaps: int = 10) -> list[dict]:
     while swaps > 0:
         swaps -= 1
         index1 = randint(0,51)
