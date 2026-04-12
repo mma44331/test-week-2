@@ -8,15 +8,9 @@ def calculate_hand_value(hand: list[dict]) -> int:
 
 
 def deal_two_each(deck: list[dict], player: dict, dealer: dict) -> None:
-    cerd1 = deck.pop()
-    cerd2 = deck.pop()
-    player['hand'].append(cerd1)
-    player['hand'].append(cerd2)
+    player['hand'].extend([deck.pop(),deck.pop()])
     print("This is the player's initial card sum. ",calculate_hand_value(player['hand']))
-    cerd11 = deck.pop()
-    cerd22= deck.pop()
-    dealer['hand'].append(cerd11)
-    dealer['hand'].append(cerd22)
+    dealer['hand'].extend([deck.pop(),deck.pop()])
     print("This is the amount of the dealer's initial cards. ",calculate_hand_value(dealer['hand']))
 
 
@@ -36,11 +30,11 @@ def dealer_play(deck: list[dict], dealer: dict) -> bool:
 
 def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
     deal_two_each(deck,player,dealer)
-    while player_io.ask_player_action() == "h":
-        print(";;")
+    while player_io.ask_player_action() == "H":
 
         player['hand'].append(deck.pop())
         count = calculate_hand_value(player['hand'])
+        print(count)
         if count > 21:
             print('You are disqualified! You are over 21.')
             print("the dealer is winner")
